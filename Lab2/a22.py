@@ -6,10 +6,10 @@ import pandas as pd
 # just keep increasing every row by
 # start + timestamp * delay
 
-df = pd.read_csv("move.csv")
+df = pd.read_csv("./data/move.csv")
 
 names = df.columns.values[1:]
-df.drop('Timestamp', axis=1, inplace=True)
+df.drop("Timestamp", axis=1, inplace=True)
 values = df.values
 
 df_filtered = df[~((df >= -200) & (df <= 200)).all(axis=1)]
@@ -20,5 +20,5 @@ plt.plot(new_values, label=names)
 plt.xlabel("Time (seconds)")
 plt.ylabel("Acceleration ($m^2/s^2$)")
 plt.grid()
-plt.legend(loc='upper right')
+plt.legend(loc="upper right")
 plt.show()
